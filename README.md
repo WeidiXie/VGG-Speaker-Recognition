@@ -18,7 +18,9 @@ The datasets used to train these models are the VoxCeleb datasets, which can be 
 ### Training the model
 To train the model on the Voxceleb2 dataset, please run 
 
+```
 - python src/main.py --net resnet34s --batch_size 160 --gpu 2,3 --lr 0.001 --optimizer adam --epochs 48 --multiprocess 8 --loss softmax --data_path ../path_to_voxceleb2
+```
 
 ### Model 
 - All models are available at the following google drive link: https://drive.google.com/open?id=1M_SXoW1ceKm3LghItY2ENKKUn3cWYfZm
@@ -27,7 +29,9 @@ To train the model on the Voxceleb2 dataset, please run
 ### Testing the model
 To test a specific model on the voxceleb1 dataset eg. the ResNet34 model trained using adam with a softmax loss, and feature dimension 512 please run
 
+```
 - python src/predict.py --gpu 1 --net resnet34s --ghost_cluster 2 --vlad_cluster 8 --loss softmax --ohem 2 --resume ../model/gvlad_softmax/2019-01-11_resnet34_bs142_adam_lr0.001_vlad8_ghost2_bdim512_ohemlevel2/weights-47-0.866.h5 
+```
 
 ### Citation
 ```
