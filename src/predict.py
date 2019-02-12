@@ -77,13 +77,7 @@ def main():
 
     network_eval = model.vggvox_resnet2d_icassp(input_dim=params['dim'],
                                                 num_class=params['n_classes'],
-                                                mode='eval',
-                                                aggregation=args.aggregation_mode,
-                                                loss=args.loss,
-                                                vlad_clusters=args.vlad_cluster,
-                                                ghost_clusters=args.ghost_cluster,
-                                                bottleneck_dim=args.bottleneck_dim,
-                                                net=args.net)
+                                                mode='eval', args=args)
 
     # ==> load pre-trained model ???
     if args.resume:

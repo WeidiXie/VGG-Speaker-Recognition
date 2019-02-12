@@ -69,33 +69,12 @@ def main():
 
     # Generators
     trn_gen = generator.DataGenerator(partition['train'], labels['train'], **params)
-    network = model.vggvox_resnet2d_icassp(input_dim=params['dim'], num_class=params['n_classes'], mode='train',
-                                           aggregation=args.aggregation_mode, loss=args.loss, optimizer=args.optimizer,
-                                           vlad_clusters=args.vlad_cluster, ghost_clusters=args.ghost_cluster,
-                                           bottleneck_dim=args.bottleneck_dim, net=args.net)
-
-    # ==> multiple gpus ?
-    mgpu = len(keras.backend.tensorflow_backend._get_available_gpus())
-    if mgpu > 1:
-        # Replicates the model on multiple GPUs.
-        network = model.ModelMGPU(network, gpus=mgpu)
-        print('==> using gpu: {}'.format(args.gpu))
-        # Re-compile model
-        if args.optimizer == 'adam':
-            opt = keras.optimizers.Adam(lr=1e-3)
-        elif args.optimizer == 'sgd':
-            opt = keras.optimizers.SGD(lr=0.1, momentum=0.9, decay=0.0, nesterov=True)
-        else:
-            raise IOError('==> unknown optimizer type')
-
-        if args.loss == 'softmax':
-            network.compile(optimizer=opt, loss='categorical_crossentropy', metrics=['acc'])
-        elif args.loss == 'amsoftmax':
-            network.compile(optimizer=opt, loss=model.amsoftmax_loss, metrics=['acc'])
-        else:
-            raise IOError('==> unknown loss type')
+    network = model.vggvox_resnet2d_icassp(input_dim=params['dim'],
+                                           num_class=params['n_classes'],
+                                           mode='train', args=args)
 
     # ==> load pre-trained model ???
+    mgpu = len(keras.backend.tensorflow_backend._get_available_gpus())
     if args.resume:
         if os.path.isfile(args.resume):
             if mgpu == 1: network.load_weights(os.path.join(args.resume))
