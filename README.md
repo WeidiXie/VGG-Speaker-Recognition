@@ -30,7 +30,7 @@ To train the model on the Voxceleb2 dataset, please run
 To test a specific model on the voxceleb1 dataset eg. the ResNet34 model trained using adam with a softmax loss, and feature dimension 512 please run
 
 ```
-- python src/predict.py --gpu 1 --net resnet34s --ghost_cluster 2 --vlad_cluster 8 --loss softmax --ohem 2 --resume ../model/gvlad_softmax/2019-01-11_resnet34_bs142_adam_lr0.001_vlad8_ghost2_bdim512_ohemlevel2/weights-47-0.866.h5 
+- python src/predict.py --gpu 1 --net resnet34s --ghost_cluster 2 --vlad_cluster 8 --loss softmax --ohem 2 --resume ../model/gvlad_softmax/2018-09-02_resnet34s_bs142_adam_lr0.001_vlad8_ghost2_bdim512_ohemlevel2/weights.h5 
 ```
 
 ### Citation
