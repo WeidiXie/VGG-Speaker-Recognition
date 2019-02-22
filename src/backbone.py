@@ -126,7 +126,7 @@ def conv_block_2D(input_tensor, kernel_size, filters, stage, block, strides=(2, 
     return x
 
 
-def resnet_2D(input_dim, mode='train'):
+def resnet_2D_v1(input_dim, mode='train'):
     bn_axis = 3
     if mode == 'train':
         inputs = Input(shape=input_dim, name='input')

@@ -87,7 +87,7 @@ def vggvox_resnet2d_icassp(input_dim=(257, 250, 1), num_class=8631, mode='train'
     mgpu = len(keras.backend.tensorflow_backend._get_available_gpus())
 
     if net == 'resnet34s':
-        inputs, x = backbone.resnet_2D(input_dim=input_dim, mode=mode)
+        inputs, x = backbone.resnet_2D_v1(input_dim=input_dim, mode=mode)
     else:
         inputs, x = backbone.resnet_2D_v2(input_dim=input_dim, mode=mode)
     # ===============================================
@@ -95,7 +95,6 @@ def vggvox_resnet2d_icassp(input_dim=(257, 250, 1), num_class=8631, mode='train'
     # ===============================================
     x_fc = keras.layers.Conv2D(bottleneck_dim, (7, 1),
                                strides=(1, 1),
-                               padding='same',
                                activation='relu',
                                kernel_initializer='orthogonal',
                                use_bias=True, trainable=True,
@@ -117,7 +116,6 @@ def vggvox_resnet2d_icassp(input_dim=(257, 250, 1), num_class=8631, mode='train'
     elif aggregation == 'vlad':
         x_k_center = keras.layers.Conv2D(vlad_clusters, (7, 1),
                                          strides=(1, 1),
-                                         padding='same',
                                          kernel_initializer='orthogonal',
                                          use_bias=True, trainable=True,
                                          kernel_regularizer=keras.regularizers.l2(weight_decay),
@@ -128,7 +126,6 @@ def vggvox_resnet2d_icassp(input_dim=(257, 250, 1), num_class=8631, mode='train'
     elif aggregation == 'gvlad':
         x_k_center = keras.layers.Conv2D(vlad_clusters+ghost_clusters, (7, 1),
                                          strides=(1, 1),
-                                         padding='same',
                                          kernel_initializer='orthogonal',
                                          use_bias=True, trainable=True,
                                          kernel_regularizer=keras.regularizers.l2(weight_decay),
@@ -189,5 +186,3 @@ def vggvox_resnet2d_icassp(input_dim=(257, 250, 1), num_class=8631, mode='train'
         else: raise IOError('==> unknown optimizer type')
         model.compile(optimizer=opt, loss=trnloss, metrics=['acc'])
     return model
-
-
