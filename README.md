@@ -3,7 +3,7 @@
 This repo will contain the code for ICASSP 2019, speaker identifcation.
 
 This repo contains a Keras implementation of the paper,     
-[Utterance-level Aggregation For Speaker Recognition In The Wild (Xie et al., ICASSP 2019)](http://www.robots.ox.ac.uk/~vgg/publications/2019/Xie19a/xie19a.pdf).
+[Utterance-level Aggregation For Speaker Recognition In The Wild (Xie et al., ICASSP 2019) (Oral)](http://www.robots.ox.ac.uk/~vgg/publications/2019/Xie19a/xie19a.pdf).
 
 
 ### Dependencies
