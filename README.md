@@ -21,7 +21,9 @@ To train the model on the Voxceleb2 dataset, you can run
 - python src/main.py --net resnet34s --batch_size 160 --gpu 2,3 --lr 0.001 --optimizer adam --epochs 48 --multiprocess 8 --loss softmax --data_path ../path_to_voxceleb2
 
 ### Model 
-- Models will be updated in the google drive: https://drive.google.com/open?id=1M_SXoW1ceKm3LghItY2ENKKUn3cWYfZm
+- Models will be updated 
+  in the google drive: https://drive.google.com/open?id=1M_SXoW1ceKm3LghItY2ENKKUn3cWYfZm
+  dropbox: https://www.dropbox.com/sh/n96ekf7ilsvkjdp/AACXKDesS2ju5rp6Cyxh2PCva?dl=0
 - Download the models and put it in the folder, model/
 
 ### Testing the model
