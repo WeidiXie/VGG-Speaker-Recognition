@@ -18,7 +18,7 @@ The dataset used for the experiments are
 ### Training the model
 To train the model on the Voxceleb2 dataset, you can run
 
-- python src/main.py --net resnet34s --batch_size 160 --gpu 2,3 --lr 0.001 --optimizer adam --epochs 48 --multiprocess 8 --loss softmax --data_path ../path_to_voxceleb2
+- python src/main.py --net resnet34s --batch_size 160 --gpu 2,3 --lr 0.001 --warmup_raito 0.1 --optimizer adam --epochs 128 --multiprocess 8 --loss softmax --data_path ../path_to_voxceleb2
 
 ### Model 
 - Models will be updated 
