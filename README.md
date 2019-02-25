@@ -34,6 +34,12 @@ for example, the model trained with ResNet34s trained by adam with softmax, and 
 
 - python src/predict.py --gpu 1 --net resnet34s --ghost_cluster 2 --vlad_cluster 8 --loss softmax --resume ../model/gvlad_softmax/resnet34_vlad8_ghost2_bdim512_deploy/weights.h5 
 
+- Expected results: 
+
+        VoxCeleb1-Test: 3.22        VoxCeleb1-Test-Cleaned: 3.24
+        VoxCeleb1-Test-E: 3.24      VoxCeleb1-Test-E-Cleaned: 3.13
+        VoxCeleb1-Test-H: 5.17      VoxCeleb1-Test-H-Cleaned: 5.06
+
 ### Citation
 ```
 @InProceedings{Xie19,
