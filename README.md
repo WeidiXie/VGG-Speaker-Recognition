@@ -23,9 +23,10 @@ To train the model on the Voxceleb2 dataset, you can run
 ### Model 
 - Models will be updated 
 
-  google drive: https://drive.google.com/open?id=1M_SXoW1ceKm3LghItY2ENKKUn3cWYfZm
+      google drive: https://drive.google.com/open?id=1M_SXoW1ceKm3LghItY2ENKKUn3cWYfZm
 
-  dropbox: https://www.dropbox.com/sh/n96ekf7ilsvkjdp/AACXKDesS2ju5rp6Cyxh2PCva?dl=0
+      dropbox: https://www.dropbox.com/sh/n96ekf7ilsvkjdp/AACXKDesS2ju5rp6Cyxh2PCva?dl=0
+      
 - Download the models and put it in the folder, model/
 
 ### Testing the model
