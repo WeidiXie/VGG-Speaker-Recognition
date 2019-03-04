@@ -44,9 +44,10 @@ for example, the model trained with ResNet34s trained by adam with softmax, and 
 ### Licence
 The code and mode are available to download for commercial/research purposes under a Creative Commons Attribution-ShareAlike 4.0 International License(https://creativecommons.org/licenses/by/4.0/).
 
-      Downloading this dataset implies agreement to follow the same conditions for any modification and/or re-distribution of the dataset in any form.
+      Downloading this code implies agreement to follow the same conditions for any modification 
+      and/or re-distribution of the dataset in any form.
 
-      Additionally any entity using this dataset agrees to the following conditions:
+      Additionally any entity using this code agrees to the following conditions:
 
       THIS CODE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
       IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
@@ -60,7 +61,7 @@ The code and mode are available to download for commercial/research purposes und
       NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
       SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-      Please cite [1] below if you make use of the dataset.
+      Please cite the papers below if you make use of the dataset and code.
 
 ### Citation
 ```
