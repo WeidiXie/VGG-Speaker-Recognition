@@ -67,7 +67,7 @@ class VladPooling(keras.engine.Layer):
             cluster_res = cluster_res[:, :self.k_centers, :]
 
         cluster_l2 = K.l2_normalize(cluster_res, -1)
-        outputs = K.reshape(cluster_l2, [-1, self.k_centers * num_features])
+        outputs = K.reshape(cluster_l2, [-1, int(self.k_centers) * int(num_features)])
         return outputs
 
 
