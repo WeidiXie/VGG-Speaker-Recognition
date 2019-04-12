@@ -18,7 +18,7 @@ The dataset used for the experiments are
 ### Training the model
 To train the model on the Voxceleb2 dataset, you can run
 
-- python src/main.py --net resnet34s --batch_size 160 --gpu 2,3 --lr 0.001 --warmup_raito 0.1 --optimizer adam --epochs 128 --multiprocess 8 --loss softmax --data_path ../path_to_voxceleb2
+- python main.py --net resnet34s --batch_size 160 --gpu 2,3 --lr 0.001 --warmup_raito 0.1 --optimizer adam --epochs 128 --multiprocess 8 --loss softmax --data_path ../path_to_voxceleb2
 
 ### Model 
 - Models will be updated 
@@ -33,7 +33,7 @@ To train the model on the Voxceleb2 dataset, you can run
 To test a specific model on the voxceleb1 dataset, 
 for example, the model trained with ResNet34s trained by adam with softmax, and feature dimension 512
 
-- python src/predict.py --gpu 1 --net resnet34s --ghost_cluster 2 --vlad_cluster 8 --loss softmax --resume ../model/gvlad_softmax/resnet34_vlad8_ghost2_bdim512_deploy/weights.h5 
+- python predict.py --gpu 1 --net resnet34s --ghost_cluster 2 --vlad_cluster 8 --loss softmax --resume ../model/gvlad_softmax/resnet34_vlad8_ghost2_bdim512_deploy/weights.h5 
 
 - Expected results: 
 
