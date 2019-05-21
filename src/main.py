@@ -18,6 +18,7 @@ parser.add_argument('--gpu', default='', type=str)
 parser.add_argument('--resume', default='', type=str)
 parser.add_argument('--batch_size', default=64, type=int)
 parser.add_argument('--data_path', default='/scratch/local/ssd/weidi/voxceleb2/dev/wav', type=str)
+parser.add_argument('--multiprocess', default=12, type=int)
 # set up network configuration.
 parser.add_argument('--net', default='resnet34s', choices=['resnet34s', 'resnet34l'], type=str)
 parser.add_argument('--ghost_cluster', default=2, type=int)
@@ -51,7 +52,7 @@ def main():
 
     # construct the data generator.
     params = {'dim': (257, 250, 1),
-              'mp_pooler': toolkits.set_mp(processes=12),
+              'mp_pooler': toolkits.set_mp(processes=args.multiprocess),
               'nfft': 512,
               'spec_len': 250,
               'win_length': 400,
