@@ -21,7 +21,7 @@ To train the model on the Voxceleb2 dataset, you can run
 - python main.py --net resnet34s --batch_size 160 --gpu 2,3 --lr 0.001 --warmup_ratio 0.1 --optimizer adam --epochs 128 --multiprocess 8 --loss softmax --data_path ../path_to_voxceleb2
 
 ### Model 
-- Models will be updated 
+- Models:
 
       google drive: https://drive.google.com/open?id=1M_SXoW1ceKm3LghItY2ENKKUn3cWYfZm
 
@@ -35,7 +35,7 @@ for example, the model trained with ResNet34s trained by adam with softmax, and 
 
 - python predict.py --gpu 1 --net resnet34s --ghost_cluster 2 --vlad_cluster 8 --loss softmax --resume ../model/gvlad_softmax/resnet34_vlad8_ghost2_bdim512_deploy/weights.h5 
 
-- Expected results: 
+- Results: 
 
         VoxCeleb1-Test: 3.22        VoxCeleb1-Test-Cleaned: 3.24
         VoxCeleb1-Test-E: 3.24      VoxCeleb1-Test-E-Cleaned: 3.13
