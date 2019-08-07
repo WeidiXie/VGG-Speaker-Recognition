@@ -42,7 +42,7 @@ for example, the model trained with ResNet34s trained by adam with softmax, and 
         VoxCeleb1-Test-H: 5.17      VoxCeleb1-Test-H-Cleaned: 5.06
 
 ### Licence
-The code and mode are available to download for commercial/research purposes under a Creative Commons Attribution-ShareAlike 4.0 International License(https://creativecommons.org/licenses/by/4.0/).
+The code and mode are available to download for commercial/research purposes under a Creative Commons Attribution 4.0 International License(https://creativecommons.org/licenses/by/4.0/).
 
       Downloading this code implies agreement to follow the same conditions for any modification 
       and/or re-distribution of the dataset in any form.
