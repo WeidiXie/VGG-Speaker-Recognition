@@ -5,6 +5,10 @@ This repo will contain the code for ICASSP 2019, speaker identifcation (http://w
 This repo contains a Keras implementation of the paper,     
 [Utterance-level Aggregation For Speaker Recognition In The Wild (Xie et al., ICASSP 2019) (Oral)](https://arxiv.org/pdf/1902.10107.pdf).
 
+New challenge on speaker recognition, 
+[The VoxCeleb Speaker Recognition Challenge (VoxSRC)]
+(http://www.robots.ox.ac.uk/~vgg/data/voxceleb/competition.html).
+
 ### Dependencies
 - [Python 2.7.15](https://www.continuum.io/downloads)
 - [Keras 2.2.4](https://keras.io/)
