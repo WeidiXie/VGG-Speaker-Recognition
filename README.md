@@ -77,20 +77,20 @@ The code and mode are available to download for commercial/research purposes und
 
 @Article{Nagrani19,
   author       = "A. Nagrani, J. S. Chung, W. Xie, A. Zisserman",
-title        = "VoxCeleb: Large-scale Speaker Verification in the Wild.",
-journal      = "Computer Speech & Language",
-year         = "2019",
+  title        = "VoxCeleb: Large-scale Speaker Verification in the Wild.",
+  journal      = "Computer Speech & Language",
+  year         = "2019",
 }
 
 @InProceedings{Chung18,
-  author       = "J. S. Chung*, A. Nagrani*, A. Zisserman ",
+  author       = "J. S. Chung, A. Nagrani, A. Zisserman ",
   title        = "VoxCeleb2: Deep Speaker Recognition.",
   booktitle    = "INTERSPEECH, 2018",
   year         = "2018",
 }
 
 @InProceedings{Nagrani17,
-  author       = "A. Nagrani*, J. S. Chung*, A. Zisserman ",
+  author       = "A. Nagrani, J. S. Chung, A. Zisserman ",
   title        = "VoxCeleb: A Large-scale Speaker Identification Dataset.",
   booktitle    = "INTERSPEECH, 2017",
   year         = "2018",
