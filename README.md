@@ -69,10 +69,17 @@ The code and mode are available to download for commercial/research purposes und
 ### Citation
 ```
 @InProceedings{Xie19,
-  author       = "W. Xie, A. Nagrani, J. S. Chung, A. Zisserman ",
+  author       = "W. Xie, A. Nagrani, J. S. Chung, A. Zisserman",
   title        = "Utterance-level Aggregation For Speaker Recognition In The Wild.",
   booktitle    = "ICASSP, 2019",
   year         = "2019",
+}
+
+@Article{Nagrani19,
+  author       = "A. Nagrani, J. S. Chung, W. Xie, A. Zisserman",
+title        = "VoxCeleb: Large-scale Speaker Verification in the Wild.",
+journal      = "Computer Speech & Language",
+year         = "2019",
 }
 
 @InProceedings{Chung18,
