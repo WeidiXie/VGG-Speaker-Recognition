@@ -82,17 +82,4 @@ The code and mode are available to download for commercial/research purposes und
   year         = "2019",
 }
 
-@InProceedings{Chung18,
-  author       = "J. S. Chung, A. Nagrani, A. Zisserman ",
-  title        = "VoxCeleb2: Deep Speaker Recognition.",
-  booktitle    = "INTERSPEECH, 2018",
-  year         = "2018",
-}
-
-@InProceedings{Nagrani17,
-  author       = "A. Nagrani, J. S. Chung, A. Zisserman ",
-  title        = "VoxCeleb: A Large-scale Speaker Identification Dataset.",
-  booktitle    = "INTERSPEECH, 2017",
-  year         = "2018",
-}
 ```
