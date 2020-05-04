@@ -30,8 +30,11 @@ def load_data(path, win_length=400, sr=16000, hop_length=160, n_fft=512, spec_le
     mag_T = mag.T
     freq, time = mag_T.shape
     if mode == 'train':
-        randtime = np.random.randint(0, time-spec_len)
-        spec_mag = mag_T[:, randtime:randtime+spec_len]
+        if time > spec_len:
+            randtime = np.random.randint(0, time-spec_len)
+            spec_mag = mag_T[:, randtime:randtime+spec_len]
+        else:
+            spec_mag = np.pad(mag_T, ((0, 0), (0, spec_len - time)), 'constant')
     else:
         spec_mag = mag_T
     # preprocessing, subtract mean, divided by time-wise var
