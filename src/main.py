@@ -5,6 +5,8 @@ import sys
 import keras
 import numpy as np
 
+np.seterr(all='raise')
+
 sys.path.append('../tool')
 import toolkits
 
@@ -35,8 +37,7 @@ parser.add_argument('--ohem_level', default=0, type=int,
                     help='pick hard samples from (ohem_level * batch_size) proposals, must be > 1')
 global args
 args = parser.parse_args()
-import numpy as np
-np.seterr(all='raise')
+
 def main():
 
     # gpu configuration
@@ -76,8 +77,6 @@ def main():
                                            mode='train', args=args)
     # ==> load pre-trained model ???
     mgpu = len(keras.backend.tensorflow_backend._get_available_gpus())
-    #import pdb
-    #pdb.set_trace()
 
     if args.resume:
         print("Attempting to load", args.resume)
