@@ -1,5 +1,0 @@
-# conda install cudatoolkit==9.0 then linked to an environment with export LD_LIBRARY_PATH=/home/ben/anaconda3/envs/entrance/lib:$LD_LIBRARY_PATH missing libcudnn.so.7
-keras==2.2.4
-tensorflow-gpu==1.8.0
-librosa==0.3.1
-scikit-learn==0.16.1
