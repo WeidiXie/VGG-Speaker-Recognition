@@ -35,7 +35,8 @@ parser.add_argument('--ohem_level', default=0, type=int,
                     help='pick hard samples from (ohem_level * batch_size) proposals, must be > 1')
 global args
 args = parser.parse_args()
-
+import numpy as np
+np.seterr(all='raise')
 def main():
 
     # gpu configuration
@@ -47,8 +48,8 @@ def main():
     # ==================================
     #       Get Train/Val.
     # ==================================
-    trnlist, trnlb = toolkits.get_voxceleb2_datalist(args, path='../meta/voxlb2_train.txt')
-    vallist, vallb = toolkits.get_voxceleb2_datalist(args, path='../meta/voxlb2_val.txt')
+    trnlist, trnlb = toolkits.get_zalo_datalist(args, path='/media/ben/datadrive/Zalo/voice-verification/vgg_db_files/train.txt')
+    vallist, vallb = toolkits.get_zalo_datalist(args, path='/media/ben/datadrive/Zalo/voice-verification/vgg_db_files/val.txt')
 
     # construct the data generator.
     params = {'dim': (257, 250, 1),
@@ -73,16 +74,26 @@ def main():
     network = model.vggvox_resnet2d_icassp(input_dim=params['dim'],
                                            num_class=params['n_classes'],
                                            mode='train', args=args)
-
     # ==> load pre-trained model ???
     mgpu = len(keras.backend.tensorflow_backend._get_available_gpus())
+    #import pdb
+    #pdb.set_trace()
+
+    print("mpu", mgpu)
     if args.resume:
-        if os.path.isfile(args.resume):
-            if mgpu == 1: network.load_weights(os.path.join(args.resume))
-            else: network.layers[mgpu + 1].load_weights(os.path.join(args.resume))
-            print('==> successfully loading model {}.'.format(args.resume))
-        else:
-            print("==> no checkpoint found at '{}'".format(args.resume))
+        print("Attempting to load", args.resume)
+        if args.resume:
+            if os.path.isfile(args.resume):
+                if mgpu == 1:
+                    # by_name=True, skip_mismatch=True
+                    # https://github.com/WeidiXie/VGG-Speaker-Recognition/issues/46
+                    network.load_weights(os.path.join(args.resume), by_name=True, skip_mismatch=True)
+                else:
+                    print("loading N+1", mgpu)
+                    network.layers[mgpu + 1].load_weights(os.path.join(args.resume))
+                print('==> successfully loading model {}.'.format(args.resume))
+            else:
+                print("==> no checkpoint found at '{}'".format(args.resume))
 
     print(network.summary())
     print('==> gpu {} is, training {} images, classes: 0-{} '
@@ -131,8 +142,8 @@ def main():
                               epochs=args.epochs,
                               max_queue_size=10,
                               callbacks=callbacks,
-                              use_multiprocessing=False,
-                              workers=1,
+                              use_multiprocessing=False, # False
+                              workers=1, # 1
                               verbose=1)
 
 

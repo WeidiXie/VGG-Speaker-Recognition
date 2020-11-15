@@ -102,6 +102,16 @@ def get_voxceleb2_datalist(args, path):
         f.close()
     return audiolist, labellist
 
+def get_zalo_datalist(args, path):
+    with open(path) as f:
+        strings = f.readlines()
+        audiolist = np.array([os.path.join(args.data_path, string.split()[0]) for string in strings])
+        labellist = np.array([int(string.split()[1]) for string in strings])
+        f.close()
+    print("Getting audio, e.g.", audiolist[0:5])
+    print("Getting labels, e.g.", labellist[0:5])
+    return audiolist, labellist
+
 
 def calculate_eer(y, y_score):
     # y denotes groundtruth scores,
