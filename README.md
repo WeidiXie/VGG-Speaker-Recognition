@@ -44,6 +44,12 @@ for example, the model trained with ResNet34s trained by adam with softmax, and 
         VoxCeleb1-Test-E: 3.24      VoxCeleb1-Test-E-Cleaned: 3.13
         VoxCeleb1-Test-H: 5.17      VoxCeleb1-Test-H-Cleaned: 5.06
 
+### Fine Tuning the model
+The weights provided do not include the weights of the final prediction layer, so one needs to randomly initialise this with `network.load_weights(os.path.join(args.resume), by_name=True, skip_mismatch=True)` in main.py
+
+python main.py --net resnet34s --gpu 0  --ghost_cluster 2 --vlad_cluster 8 --batch_size 16 --lr 0.001 --warmup_ratio 0.1 --optimizer adam --epochs 128 --multiprocess 8 --loss softmax --data_path /media/ben/datadrive/Zalo/voice-verification/Train-Test-Data/dataset/ --resume=/media/ben/datadrive/Software/VGG-Speaker-Recognition/model/weights_dropbox.h5
+
+
 ### Licence
 The code and mode are available to download for commercial/research purposes under a Creative Commons Attribution 4.0 International License(https://creativecommons.org/licenses/by/4.0/).
 

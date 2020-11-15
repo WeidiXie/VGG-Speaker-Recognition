@@ -44,7 +44,7 @@ def main():
     print('==> calculating test({}) data lists...'.format(args.test_type))
 
     if args.test_type == 'normal':
-        verify_list = np.loadtxt('../meta/voxceleb1_veri_test.txt', str)
+        verify_list = np.loadtxt('/media/ben/datadrive/Zalo/voice-verification/vgg_db_files/val_trials.txt', str)
     elif args.test_type == 'hard':
         verify_list = np.loadtxt('../meta/voxceleb1_veri_test_hard.txt', str)
     elif args.test_type == 'extend':
@@ -133,6 +133,7 @@ def main():
 def set_result_path(args):
     model_path = args.resume
     exp_path = model_path.split(os.sep)
+    print("Paths are", '../result', exp_path[2], exp_path[3])
     result_path = os.path.join('../result', exp_path[2], exp_path[3])
     if not os.path.exists(result_path): os.makedirs(result_path)
     return result_path
