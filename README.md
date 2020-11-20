@@ -12,6 +12,10 @@ This repo contains a Keras implementation of the paper,
 - [Python 2.7.15](https://www.continuum.io/downloads)
 - [Keras 2.2.4](https://keras.io/)
 - [Tensorflow 1.8.0](https://www.tensorflow.org/)
+- CUDA 9 
+- See requirements.txt
+
+There seems to be a bug in this version of librosa such that loading wav files is cripplingly slow (1 second per short file), you can replace read_wav with read_wav_fast in utils.py to fix this, but be aware that the result is that the sample rate is not constant. 
 
 ### Data
 The dataset used for the experiments are
@@ -47,7 +51,9 @@ for example, the model trained with ResNet34s trained by adam with softmax, and 
 ### Fine Tuning the model
 The weights provided do not include the weights of the final prediction layer, so one needs to randomly initialise this with `network.load_weights(os.path.join(args.resume), by_name=True, skip_mismatch=True)` in main.py
 
-python main.py --net resnet34s --gpu 0  --ghost_cluster 2 --vlad_cluster 8 --batch_size 16 --lr 0.001 --warmup_ratio 0.1 --optimizer adam --epochs 128 --multiprocess 8 --loss softmax --data_path /media/ben/datadrive/Zalo/voice-verification/Train-Test-Data/dataset/ --resume=/media/ben/datadrive/Software/VGG-Speaker-Recognition/model/weights_dropbox.h5
+python main.py --net resnet34s --gpu 0  --ghost_cluster 2 --vlad_cluster 8 --batch_size 16 --lr 0.001 --warmup_ratio 0.1 --optimizer adam --epochs 128 --multiprocess 8 --loss softmax --resume=../model/gvlad_softmax/resnet34_vlad8_ghost2_bdim512_deploy/weights.h5 
+
+Note that `--data_path /path_to_your_dataset/dataset/` can be used to point to your own dataset, but you will need to write a small function in toolkits.py to return the corresponding datalist file contents.
 
 
 ### Licence
